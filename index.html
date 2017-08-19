@@ -151,6 +151,134 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="page-模块化" class="article article-type-page  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/20/模块化/">Cookie</a>
+    </h1>
+  
+
+        
+        <a href="/2016/10/20/模块化/" class="archive-article-date">
+  	<time datetime="2016-10-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaScript-模块化"><a href="#JavaScript-模块化" class="headerlink" title="JavaScript 模块化"></a>JavaScript 模块化</h2><h3 id="1-什么是模块化"><a href="#1-什么是模块化" class="headerlink" title="1. 什么是模块化"></a>1. 什么是模块化</h3><p>&emsp;&emsp;首先 JavaScript 不支持模块化，但是随着网站的发展，嵌入到网页中的 JavaScript 代码越来越大，越来越复杂，迫切希望 JavaScript 能够实现模块化。</p>
+<p>&emsp;&emsp;那么什么是模块化？所谓的模块化，就是将 JavaScript 在多个文件中编写，最后合到一起使用，每一个文件是一个独立的，与其他文件互不影响的结构，同时，各个部分合并到一起又可以相互协作。</p>
+<p>&emsp;&emsp;说到模块，就会很容易想到组件，它们很容易混淆。一般来说，组件侧重 UI 部分，管理界面的弹出框、头部、内容区、确认按钮和页脚都可以是个组件，这些组件可以组成一个弹出框组件，跟其他组件结合又可以是一个新的组件；而模块化侧重的是功能的封装，强调逻辑。</p>
+<h3 id="2-模块的发展历程"><a href="#2-模块的发展历程" class="headerlink" title="2. 模块的发展历程"></a>2. 模块的发展历程</h3><p>&emsp;&emsp;在 node 出现前， JavaScript 比较简单，不懂代码的人也可以写一点页面交互，此时没有模块的概念，同时这个时候，也有一些程序员用各种技巧模拟模块化，沙箱模式就是一个很好的体现。</p>
+<p>&emsp;&emsp;node 的出现，将JavaScript 从浏览器中剥离出来，带来了CommonJS 规则 —- 模块加载规则，在 node 中，每一个 JavaScript 库都看成一个模块，先下载，然后利用 require 将其导入到代码中，实现代码的使用。</p>
+<p>&emsp;&emsp;因为 node ，服务器端有了模块化，那么浏览器呢？这个时候，有人就提出了，浏览器也需要模块化，他们借用 node 的思路，打算在浏览器中创建模块化。在浏览器中，如果采用同步的执行方式，浏览器很容易阻塞，页面渲染会受到影响，所以得采用异步的方式。AMD（异步模块定义规则） 概念由此被引出，其中最有代表性的就是 require.js 。require.js 需要先将全部的库加载完，然后再执行代码，这样的话，不需要的库，也被下载下来了，比较浪费性能，这个时候，阿里的玉帛提出了按需加载，CMD（通用模块定义规则） 的概念被提出，最具代表的就是 sea.js。</p>
+<p>&emsp;&emsp;随着 JavaScript 的高级语言特性的发展，JavaScript 已经具有模块化的特征，sea.js 的停止开发，可以很好的说明这个问题。</p>
+<h3 id="3-require-js-插件"><a href="#3-require-js-插件" class="headerlink" title="3. require.js 插件"></a>3. require.js 插件</h3><p>&emsp;&emsp;早期，所有的 JavaScript 代码写在一个文件中，只要加载这个文件就可以了。但是随着，代码量的增加，一个文件显然不够了，需要分成多个文件，依次加载。这样的话，会出现一些问题：首先，文件多了，加载需要时间，浏览器就会停止对网页的渲染；其次，JS文件之间存在依赖关系，必须得按照顺序进行加载，一旦顺序出错，后果很难预料。因此，代码的编写和维护很困难。值得高兴的是：require.js 解决了这些问题。</p>
+<p>&emsp;&emsp;<strong>require.js 使用方法</strong></p>
+<p>&emsp;&emsp;第一步：下载 <a href="http://requirejs.org/docs/download.html" target="_blank" rel="external">require.js</a> ;</p>
+<p>&emsp;&emsp;第二步： 引包；</p>
+<p>&emsp;&emsp;第三步： 设置。</p>
+<p>&emsp;&emsp;<strong>require.js 具体设置</strong></p>
+<p>&emsp;&emsp;<code>1. 定义模块</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define( <span class="string">'模块名'</span>, [ <span class="string">'依赖项'</span> ], <span class="function"><span class="keyword">function</span>(<span class="params"> 依赖列表 </span>)</span>&#123;</div><div class="line">    <span class="comment">//代码部分</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;注意点：</p>
+<p>&emsp;&emsp;&emsp;&emsp;①模块名：当前模块的名字，一般不提供，表示创建匿名模块，有名字就是命名模块。</p>
+<p>&emsp;&emsp;&emsp;&emsp;②依赖项：一般是一个数组，里面存放的是当前模块依赖的模块名（字符串形式）。</p>
+<p>&emsp;&emsp;&emsp;&emsp;③函数：代码编写的地方，这个回调函数的参数是依赖模块的返回值</p>
+<p>&emsp;&emsp;<code>2. 加载模块</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>( [ <span class="string">'模块名'</span> ] );</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;注意点：</p>
+<p>&emsp;&emsp;&emsp;&emsp;①可以一次加载一个模块，也可以一次性加载多个模块,将模块名放到数组中即可。</p>
+<p>&emsp;&emsp;&emsp;&emsp;②模块名的使用：注意路径的问题，一般使用的是，没有路径名和后缀名的文件名。如果使用带有路径和后缀名的，可以用相对路径和绝对路径来定位，但是不建议使用。</p>
+<p>&emsp;&emsp;<code>3. 多模块协作</code></p>
+<p>&emsp;&emsp;&emsp;&emsp;&gt;&gt; 功能协作(分为相互依赖和互不依赖)</p>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;相互依赖情况:在 js1 模块中创建一个 div，在 js2 模块中对这个 div 进行操作，将 js1 和 js2 这2个模块加载到 html 页面中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js1.js 中创建div</span></div><div class="line">define( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> dv = <span class="built_in">document</span>.createElement(<span class="string">'div'</span>);</div><div class="line">    <span class="built_in">document</span>.body.appendChild( dv );</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//js2.js 对 js1.js 中创建的div 进行样式操作</span></div><div class="line">define( [ <span class="string">'js1'</span> ], <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> dv = <span class="built_in">document</span>.querySelector( <span class="string">'div'</span> );</div><div class="line">    dv.style.height = <span class="string">'100px'</span>;</div><div class="line">    dv.style.width = <span class="string">'100px'</span>;</div><div class="line">    dv.style.border = <span class="string">'1px solid red'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//将模块 js1 和 js2 加载到 html 页面中</div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">require</span>( [ <span class="string">'js2'</span> ] );</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;互不依赖情况:在 js1 模块中创建 div1，在 js2 模块中创建 div2 ，将 js1 和 js2 这2个模块加载到 html 页面中<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在 js1.js 中创建 div1</span></div><div class="line">define( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> dv1 = <span class="built_in">document</span>.querySelector( <span class="string">'div'</span> );</div><div class="line">    dv1.style.height = <span class="string">'100px'</span>;</div><div class="line">    dv1.style.width = <span class="string">'100px'</span>;</div><div class="line">    dv1.style.border = <span class="string">'1px solid red'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在 js2.js 中创建 div2</span></div><div class="line">define( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> dv2 = <span class="built_in">document</span>.querySelector( <span class="string">'div'</span> );</div><div class="line">    dv2.style.height = <span class="string">'100px'</span>;</div><div class="line">    dv2.style.width = <span class="string">'100px'</span>;</div><div class="line">    dv2.style.border = <span class="string">'1px solid green'</span>;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//将模块 js1 和 js2 加载到 html 页面中</div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">require</span>( [ <span class="string">'js1'</span>, <span class="string">'js2'</span> ] );</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;&emsp;&emsp;&gt;&gt; 返回数据协作（第三方库使用此方法处理）—- 实现方式：一个模块中返回一个数据，在另一个模块中用回调函数去接收这个数据<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在 js1.js 中创建一套获取元素，设置样式的 api</span></div><div class="line">define( <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//获取元素</span></div><div class="line">    <span class="keyword">var</span> arr = [],</div><div class="line">        slice = arr.slice;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> slice.call( <span class="built_in">document</span>.querySelector( selector ) );</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//设置样式</span></div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">css</span>(<span class="params"> arr, styles </span>)</span>&#123;</div><div class="line">        arr.forEach( <span class="function"><span class="keyword">function</span>(<span class="params"> dom </span>)</span>&#123;</div><div class="line">            <span class="keyword">for</span>( <span class="keyword">var</span> k <span class="keyword">in</span> styles )&#123;</div><div class="line">                dom.style[ k ] = styles[ k ];</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> utils = &#123;</div><div class="line">        <span class="attr">select</span>: select,</div><div class="line">        <span class="attr">css</span>: css</div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">return</span> utils;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//使用模块 js1 中的 api</span></div><div class="line">define( [ <span class="string">'js1'</span> ], <span class="function"><span class="keyword">function</span>(<span class="params"> tools </span>)</span>&#123;</div><div class="line">    <span class="comment">//这个 tools 就是模块 js1 中的 utils</span></div><div class="line">    <span class="keyword">var</span> divs = tools.select( <span class="string">'div'</span> );</div><div class="line">    tools.css( &#123;</div><div class="line">        <span class="attr">width</span>: <span class="string">'100px'</span>,</div><div class="line">        <span class="attr">height</span>: <span class="string">'100px'</span>,</div><div class="line">        <span class="attr">marginTop</span>: <span class="string">'20px'</span>,</div><div class="line">        <span class="attr">border</span>: <span class="string">'1px solid red'</span></div><div class="line">    &#125; );</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//因为模块 js2 依赖模块 js1 ，使用加载模块的时候，只需加载 js2 </div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">    <span class="built_in">require</span>( [ <span class="string">'js2'</span> ] );</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<code>4. 路径搜索原则</code></p>
+<p>&emsp;&emsp;路径搜索原则是针对没有路径符号和后缀名的情况下使用的。</p>
+<p>&emsp;&emsp;&emsp;&emsp;&gt;&gt; 默认情况</p>
+<p>&emsp;&emsp;当前 html 文件所在目录为查找起点</p>
+<p>&emsp;&emsp;&emsp;&emsp;&gt;&gt; 配置模块入口</p>
+<p>&emsp;&emsp;用 \<script> 标签加载 require.js 文件的时候，可以设置 data-main 来配置默认加载模块，配置后，html 页面一加载，就会自动加载该模块。所有模块加载路径都会采用这个默认模块所在的目录为参考路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//html 页面一加载，模块 js1 会自动加载</span></div><div class="line">&lt;script src=<span class="string">"js/require.js"</span> data-main=<span class="string">"js/js1.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;&emsp;&emsp;&gt;&gt; 增加配置文件，约定搜索路径（推荐做法）<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="attr">baseUrl</span>: <span class="string">'配置的基础路径'</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;此方法除了可以设置基路径外，还可以通过 paths 设置模块的加载路径和模块名字<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="attr">baseUrl</span>: <span class="string">'搜索基路径'</span>,</div><div class="line">    <span class="attr">paths</span>: &#123;</div><div class="line">        模块<span class="number">1</span>短名字: <span class="string">'模块1长名字'</span>,</div><div class="line">        模块<span class="number">2</span>短名字: <span class="string">'模块2长名字'</span>,</div><div class="line">        ......</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;<code>5. 命名模块</code><br>&emsp;&emsp;如果使用命名模块，那么文件名必须与模块名字一模一样<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//在 html 页面中把 jquery-1.12.4 命名为 jquery</div><div class="line">require.config(&#123;</div><div class="line">    paths:&#123;</div><div class="line">        jquery: 'jquery-1.12.4'</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line">//加载模块</div><div class="line">require( [ 'js1' ] );</div></pre></td></tr></table></figure></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//在模块 js1 中使用 jquery 模块，此时模块 js1 依赖 jquery 模块，这里使用的模块名字和 html 页面中命名的模块名字是一样的</span></div><div class="line">define( [ <span class="string">'jquery'</span> ], <span class="function"><span class="keyword">function</span>(<span class="params"> $ </span>)</span>&#123;</div><div class="line">    <span class="comment">//书写代码部分</span></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<code>6. require函数</code><br>&emsp;&emsp;加载模块完毕后立即执行代码，回调函数的参数，就是各个模块导出的值，比如：使用 jquery 模块的时候，参数为 $<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></div><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="attr">baseUrl</span>: <span class="string">'./'</span>,</div><div class="line">    <span class="attr">paths</span>: &#123;</div><div class="line">        <span class="attr">jquery</span>: <span class="string">'jquery-1.12.4'</span></div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></div><div class="line"><span class="built_in">require</span>( [ <span class="string">'jquery'</span> ], <span class="function"><span class="keyword">function</span>(<span class="params"> $ </span>)</span>&#123;</div><div class="line">    <span class="comment">//书写代码部分</span></div><div class="line">    <span class="keyword">var</span> i = <span class="number">0</span>;</div><div class="line">    $( <span class="string">'&lt;div&gt;&lt;div&gt;'</span> ).appendTo( <span class="string">'body'</span> ).css(&#123;</div><div class="line">        <span class="attr">width</span>: <span class="string">'100px'</span>,</div><div class="line">        <span class="attr">height</span>: <span class="string">'100px'</span>,</div><div class="line">        <span class="attr">border</span>: <span class="string">'1px solid red'</span></div><div class="line">    &#125;).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        $( <span class="keyword">this</span> ).css( <span class="string">'borderColor'</span>, [ <span class="string">'green'</span>, <span class="string">'red'</span> ][ i++ % <span class="number">2</span> ] ); </div><div class="line">    &#125;);</div><div class="line">&#125;);</div><div class="line"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line">注：一般是独立功能的时候，会选择单独定义一个模块</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;<code>7. 处理非模块</code></p>
+<p>&emsp;&emsp;&emsp;&emsp;&gt;&gt;依赖模型</p>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;bootstrap不是一个模块，同时它依赖 jquery 模块，所以要把 bootstrap 当做模块加载的话，就需要对它进行设置，使用 shim 属性</p>
+<p>&emsp;&emsp;语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">shim: &#123;</div><div class="line">    依赖库名字: &#123;</div><div class="line">        <span class="attr">deps</span>: [ <span class="string">'被依赖的库名字'</span> ]</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="attr">baseUrl</span>: <span class="string">'./'</span>,</div><div class="line">    <span class="attr">paths</span>: &#123;</div><div class="line">        <span class="attr">bootstrap</span>: <span class="string">'bootstrap'</span>,</div><div class="line">        <span class="attr">jquery</span>: <span class="string">'jquery'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">shim</span>: &#123;</div><div class="line">        <span class="attr">bootstrap</span>: &#123;</div><div class="line">            <span class="attr">deps</span>: [ <span class="string">'jquery'</span> ]</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"><span class="built_in">require</span>( [ <span class="string">'jquery'</span>, <span class="string">'bootstrap'</span> ] );</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;&emsp;&emsp;&gt;&gt;导出模型</p>
+<p>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;自己写的 js 代码，也可以当做模块使用，加载之前，需要进行设置，使用 shim 属性 中的 deps 和 exports 等属性</p>
+<p>&emsp;&emsp;语法：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">shim: &#123;</div><div class="line">    导出库的短名字: &#123;</div><div class="line">        <span class="attr">deps</span>: [ <span class="string">'被依赖的库的名字'</span> ],</div><div class="line">        <span class="attr">exports</span>: <span class="string">'这个模块外部调用的时候的名字'</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;例子：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">require</span>.config(&#123;</div><div class="line">    <span class="attr">baseUrl</span>: <span class="string">'./'</span>,</div><div class="line">    <span class="attr">paths</span>: &#123;</div><div class="line">        <span class="attr">jquery</span>: <span class="string">'jquery-1.12.4'</span>,</div><div class="line">        <span class="attr">lib</span>: <span class="string">'lib'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="attr">shim</span>: &#123;</div><div class="line">        <span class="attr">lib</span>: &#123;</div><div class="line">            <span class="attr">deps</span>: [ <span class="string">'jquery'</span> ],</div><div class="line">            <span class="attr">exports</span>: <span class="string">'XX'</span></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"><span class="built_in">require</span>( [ <span class="string">'lib'</span> ], <span class="function"><span class="keyword">function</span>(<span class="params"> $, a </span>)</span>&#123;</div><div class="line">    <span class="comment">//代码部分</span></div><div class="line">&#125; );</div></pre></td></tr></table></figure></p>
+</script></p>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/10/20/模块化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="page-cookie" class="article article-type-page  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -192,7 +320,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/JavaScript,bom/" class="article-tag-list-link color1">JavaScript, bom</a>
+        			<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
         		</li>
       		
 		</ul>
