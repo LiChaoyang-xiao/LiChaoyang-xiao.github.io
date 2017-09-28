@@ -175,7 +175,7 @@
 <h3 id="1-Cookie-概述及出现的原因"><a href="#1-Cookie-概述及出现的原因" class="headerlink" title="1. Cookie 概述及出现的原因"></a>1. Cookie 概述及出现的原因</h3><p>&emsp;早期在浏览器中存储数据只能使用 window.name 这个变量，浏览器在关闭的时候，这个数据会丢失，而且浏览器刷新或者做其他初始化操作的时候，数据也会被修改覆盖。因此，Cookie 就被发明了，它可以在浏览器中存储少量的数据，通过设置，cookie 保存的数据在浏览器关闭后，还可以保留。</p>
 <p>&emsp;cookie 的组成部分：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&gt; cookie 的名字(key)</div><div class="line">&gt; cookie 的值(value)</div><div class="line">&gt; cookie 到期时间(expires、max-age)</div><div class="line">&gt; cookie 所属域名(domain,默认是当前域名)</div><div class="line">&gt; cookie 生效的路径(path, 默认是当前网址)</div></pre></td></tr></table></figure></p>
 <p>&emsp;如果当前的URL是 <code>www.xxx.com</code> ,那么 cookie 的路径就是根目录 <code>/</code>。这就意味着，这个 cookie 对该域名的根路径和它的所有子路径都有效。如果路径设为 <code>/a</code> ，那么这个 cookie 只有在访问 <code>www.xxx.com/a</code> 及其子路径的时候才生效（具体可以看后面的 cookie 的 属性 path ）。 </p>
-<p>&emsp;浏览器可以接受 cookie ,可以向服务器发送 cookie ，同时浏览器也可以不接受 cookie，可以不向服务器发送 cookie 。<code>window.navigator.cookieEnabled</code> 属性返回一个布尔值，表示浏览器是否打开 cookie 功能。<br>
+<p>&emsp;浏览器可以接受 cookie ,可以向服务器发送 cookie ，同时浏览器也可以不接受 cookie，可以不向服务器发送 cookie 。<code>window.navigator.cookieEnabled</code> 属性返回一个布尔值，表示浏览器是否打开 cookie 功能。</p>
         
           <a class="article-more-a" href="/2016/09/10/cookie/#more">more >></a>
         
@@ -202,6 +202,88 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/09/10/cookie/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="page-javascript-history" class="article article-type-page  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/24/javascript-history/">JavaScript语言简介</a>
+    </h1>
+  
+
+        
+        <a href="/2014/11/24/javascript-history/" class="archive-article-date">
+  	<time datetime="2014-11-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2014-11-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>&ensp;&ensp;一门计算机语言的诞生，必定是为了解决某个（或者某类的问题）。JavaScript 语言的最初开发的目的就是为了解决网络不好的情况下，用户对表单提交的问题。同时，随着互联网的发展，JavaScript 语言也得到了发展。</p>
+<h2 id="JavaScript的历史"><a href="#JavaScript的历史" class="headerlink" title="JavaScript的历史"></a>JavaScript的历史</h2><h3 id="1-JavaScript的诞生"><a href="#1-JavaScript的诞生" class="headerlink" title="1. JavaScript的诞生"></a>1. JavaScript的诞生</h3><p>&ensp;&ensp;JavaScript因互联网而生，紧随浏览器的出现而问世。如果想了解JavaScript的历史，那么就得从浏览器的历史开始讲起。</p>
+<p>&ensp;&ensp;1990年底，欧洲核能研究组织 ( CERN ) 科学家 <a href="https://baike.baidu.com/item/蒂姆·伯纳斯·李/8868412?fr=aladdin&amp;fromid=1836386&amp;fromtitle=Tim+Berners-Lee" target="_blank" rel="external">Tim Berners-Lee</a> 在互联网的基础上，发明了万维网 ( World Wide Web ) ,从此可以在网上浏览网页文件。最早的网页只能在操作系统的终端里浏览，即只能使用命令行操作，网页在字符窗口中显示。</p>
+<p>&ensp;&ensp;1992年底，美国国家超级电脑应用中心 <a href="https://baike.baidu.com/item/Mosaic%E6%B5%8F%E8%A7%88%E5%99%A8/9963015" target="_blank" rel="external">( NCSA )</a> 开始开发一个独立的浏览器 —- Mosaic，人类历史上第一个浏览器，从此网页可以在图形界面的窗口浏览。</p>
+<p>&ensp;&ensp;1994年，NCSA的一个主要程序员 Marc Andreessen 联合风险投资家 Jim Clark，成立了Mosaic 通信公司，不久后改名为 <a href="https://baike.baidu.com/item/%E7%BD%91%E6%99%AF/70176?fr=aladdin&amp;fromid=2778944&amp;fromtitle=netscape" target="_blank" rel="external">Netscape</a> ，Netscape 在Mosaic 的基础上，开发了面向普通用户的新一代浏览器 Netscape Navigator 。</p>
+<p>&ensp;&ensp;1994年12月， Navigator 发布了1.0版，市场份额一举超过了90%。</p>
+<p>&ensp;&ensp;Netscape 公司很快发现，Navigator浏览器需要一种可以嵌入网页的脚本语言，用来控制浏览器行为。当时，网速很慢而且上网费用很贵，有些操作不宜在服务端完成。比如，如果用户忘记填写“用户名”，就点击了“发送”按钮，到服务器再发现没有填写“用户名”就有太晚了，最好浏览器能在用户发出数据之前，就可以告诉用户“请填写用户名”。这就需要在网页中嵌入小程序，让浏览器检查每一栏是否都填写了。</p>
+        
+          <a class="article-more-a" href="/2014/11/24/javascript-history/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2014/11/24/javascript-history/">展开全文 >></a>
         </p>
       
 
