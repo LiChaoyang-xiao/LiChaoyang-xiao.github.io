@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://lichaoyang-xiao.github.io/2015/01/01/href和src的区别/index.html">
 <meta property="og:site_name" content="李朝阳个人博客">
 <meta property="og:description" content="&amp;emsp;加载 js 文件的时候，使用 src ;加载 css 文件的时候，使用 href 。 src&amp;emsp;src 是 source 的简写，表示引入文件，目的是要把文件加载到 html 页面中。当浏览器解析的时候，会暂停其他的内容，先去加载 src 的内容，必须得等到 src 的内容加载完成之后才会执行后面。这也是为什么 js 文件往往放在 html 文件的最下面，如果在页面的 head">
-<meta property="og:updated_time" content="2017-09-28T04:53:38.356Z">
+<meta property="og:updated_time" content="2017-09-28T04:58:09.285Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="href 和 src 的区别">
 <meta name="twitter:description" content="&amp;emsp;加载 js 文件的时候，使用 src ;加载 css 文件的时候，使用 href 。 src&amp;emsp;src 是 source 的简写，表示引入文件，目的是要把文件加载到 html 页面中。当浏览器解析的时候，会暂停其他的内容，先去加载 src 的内容，必须得等到 src 的内容加载完成之后才会执行后面。这也是为什么 js 文件往往放在 html 文件的最下面，如果在页面的 head">
@@ -171,7 +171,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>&emsp;加载 <code>js</code> 文件的时候，使用 <code>src</code> ;加载 <code>css</code> 文件的时候，使用 <code>href</code> 。</p>
-<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><p>&emsp;<code>src</code> 是 source 的简写，表示<strong>引入</strong>文件，目的是要把文件加载到 html 页面中。当浏览器解析的时候，会暂停其他的内容，先去加载 <code>src</code> 的内容，必须得等到 <code>src</code> 的内容加载完成之后才会执行后面。这也是为什么 js 文件往往放在 html 文件的最下面，如果在页面的 head 上放js文件，可能会使页面阻塞，可以使用 <code>window.onload</code> 事件，让 js 文件最后加载。</p>
+<h3 id="src"><a href="#src" class="headerlink" title="src"></a>src</h3><p>&emsp;<code>src</code> 是 source 的简写，表示<strong>引入</strong>文件，目的是要把文件加载到 html 页面中。当浏览器解析的时候，会暂停其他的内容，先去加载 <code>src</code> 的内容，必须得等到 <code>src</code> 的内容加载完成之后才会执行后面。这也是为什么 js 文件往往放在 html 文件的最下面，如果在页面的 head 上放 js 文件，可能会使页面阻塞，可以使用 <code>window.onload</code> 事件，让 js 文件最后加载。</p>
 <h3 id="href"><a href="#href" class="headerlink" title="href"></a>href</h3><p>&emsp;<code>href</code> 是 Hypertext Reference 的简写，表示超文本<strong>引用</strong>，指向网络资源所在的位置，建立和当前元素或当前文档直接的链接。它与页面是链接的关系，在加载它的时候，页面本身不会停止其他内容的加载。</p>
 
       
@@ -277,11 +277,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/09/10/cookie/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/16/浏览器兼容性问题大汇总/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Cookie
+          兼容性问题总结(结合一些网上别人的总结)
         
       </div>
     </a>
@@ -402,6 +402,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
