@@ -151,6 +151,87 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-模块化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/20/模块化/">JavaScript 模块化</a>
+    </h1>
+  
+
+        
+        <a href="/2016/10/20/模块化/" class="archive-article-date">
+  	<time datetime="2016-10-19T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-10-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JavaScript-模块化"><a href="#JavaScript-模块化" class="headerlink" title="JavaScript 模块化"></a>JavaScript 模块化</h2><h3 id="1-什么是模块化"><a href="#1-什么是模块化" class="headerlink" title="1. 什么是模块化"></a>1. 什么是模块化</h3><p>&emsp;&emsp;首先 JavaScript 不支持模块化，但是随着网站的发展，嵌入到网页中的 JavaScript 代码越来越大，越来越复杂，迫切希望 JavaScript 能够实现模块化。</p>
+<p>&emsp;&emsp;那么什么是模块化？所谓的模块化，就是将 JavaScript 在多个文件中编写，最后合到一起使用，每一个文件是一个独立的，与其他文件互不影响的结构，同时，各个部分合并到一起又可以相互协作。</p>
+<p>&emsp;&emsp;说到模块，就会很容易想到组件，它们很容易混淆。一般来说，组件侧重 UI 部分，管理界面的弹出框、头部、内容区、确认按钮和页脚都可以是个组件，这些组件可以组成一个弹出框组件，跟其他组件结合又可以是一个新的组件；而模块化侧重的是功能的封装，强调逻辑。</p>
+<h3 id="2-模块的发展历程"><a href="#2-模块的发展历程" class="headerlink" title="2. 模块的发展历程"></a>2. 模块的发展历程</h3><p>&emsp;&emsp;在 node 出现前， JavaScript 比较简单，不懂代码的人也可以写一点页面交互，此时没有模块的概念，同时这个时候，也有一些程序员用各种技巧模拟模块化，沙箱模式就是一个很好的体现。</p>
+<p>&emsp;&emsp;node 的出现，将JavaScript 从浏览器中剥离出来，带来了CommonJS 规则 —- 模块加载规则，在 node 中，每一个 JavaScript 库都看成一个模块，先下载，然后利用 require 将其导入到代码中，实现代码的使用。</p>
+<p>&emsp;&emsp;因为 node ，服务器端有了模块化，那么浏览器呢？这个时候，有人就提出了，浏览器也需要模块化，他们借用 node 的思路，打算在浏览器中创建模块化。在浏览器中，如果采用同步的执行方式，浏览器很容易阻塞，页面渲染会受到影响，所以得采用异步的方式。AMD（异步模块定义规则） 概念由此被引出，其中最有代表性的就是 require.js 。require.js 需要先将全部的库加载完，然后再执行代码，这样的话，不需要的库，也被下载下来了，比较浪费性能，这个时候，阿里的玉帛提出了按需加载，CMD（通用模块定义规则） 的概念被提出，最具代表的就是 sea.js。</p>
+        
+          <a class="article-more-a" href="/2016/10/20/模块化/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/JavaScript/" class="article-tag-list-link color1">JavaScript</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/10/20/模块化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-cookie" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
